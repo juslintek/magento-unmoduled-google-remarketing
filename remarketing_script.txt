@@ -1,0 +1,55 @@
+1. Magento Remarketing script
+
+2. add to views.phtml or any other template file where $_product object is reachable to generate remarketing tag.
+
+<!-- „Google“ pakartotinės rinkodaros žymos kodas -->
+
+<!--------------------------------------------------
+
+Pakartotinių rinkodaros žymų negalima susieti su tapatybe identifikuojančia informacija arba dėti puslapiuose, susijusiuose su delikataus turinio kategorijomis. Žr. daugiau informacijos ir nurodymų, kaip nustatyti žymą: http://google.com/ads/remarketingsetup
+
+--------------------------------------------------->
+
+<script type="text/javascript">
+
+var google_tag_params = {
+
+dynx_itemid: '<?php echo $_product->getSku() ?>',
+
+dynx_itemid2: '<?php echo $_product->getId() ?>',
+
+dynx_pagetype: 'offerdetail',
+
+dynx_totalvalue: ''<?php echo number_format($_product->getPrice(), 2) ?> EUR',
+
+};
+
+</script>
+
+<script type="text/javascript">
+
+/* <![CDATA[ */
+
+var google_conversion_id = 900416232;
+
+var google_custom_params = window.google_tag_params;
+
+var google_remarketing_only = true;
+
+/* ]]> */
+
+</script>
+
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+
+</script>
+
+<noscript>
+
+<div style="display:inline;">
+
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/953524054/?value=0&amp;guid=ON&amp;script=0"/>
+
+</div>
+
+</noscript>
